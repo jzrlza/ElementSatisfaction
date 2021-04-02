@@ -3,8 +3,8 @@ import define1 from "./450051d7f1174df8@252.js";
 export default function define(runtime, observer) {
   const main = runtime.module();
 
-  //const root_url = "https://festive-leavitt-30175f.netlify.app/";
-  const root_url = "http://localhost/visual_d3_elementals/";
+  const root_url = "https://nervous-payne-f830e5.netlify.app/";
+  //const root_url = "http://localhost/visual_d3_elementals/";
 
   const fileAttachments = new Map([["income_feedbacks.json",
     new URL(root_url+"income_feedbacks.json",import.meta.url)]]);
