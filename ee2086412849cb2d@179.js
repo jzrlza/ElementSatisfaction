@@ -12,9 +12,11 @@ export default function define(runtime, observer) {
   main.builtin("FileAttachment", runtime.fileAttachments(element => fileAttachments.get(element)));
 
   main.variable(observer()).define(["md"], function(md){return(
-    md`# Elementals Spendings and Satisfaction of Our Service 
+    md`# Elementals Spendings and Satisfaction of Our Service
 
-    Our Service satisfaction and spending in average of the group element type of people (aka personality type if you assume) for year 3021 to 3025.`
+    Our Service satisfaction and spending in average of the group element type of people (aka personality type if you assume) for year 3021 to 3025.
+
+    การใช้จ่ายค่าบริการโดยเฉลี่ยและความพอใจบริการโดยเฉลี่ยตามบุคคลธาตุต่างๆ ที่มาใช้บริการ Our Service`
   )});
 
   main.variable(observer("viewof year")).define("viewof year", ["Scrubber","d3"], function(Scrubber,d3){return(
@@ -42,7 +44,7 @@ export default function define(runtime, observer) {
       background: var(--color);
     }
 
-    </style><div style="display: flex; align-items: center; min-height: 33px; font: 10px sans-serif; margin-left: ${margin.left}px;"><div>${color.domain().map(element => html`<span class="${id}" style="--color: ${color(element)}">${document.createTextNode(element)}</span>`)}`;
+    </style><div style="display: flex; align-items: center; min-height: 33px; font: 12px sans-serif; margin-left: ${margin.left}px;"><div>${color.domain().map(element => html`<span class="${id}" style="--color: ${color(element)}">${document.createTextNode(element)}</span>`)}`;
   });
 
   main.variable(observer("chart")).define("chart", ["d3","width","height","xAxis","yAxis","grid","dataAt","x","y","radius","color"], function(d3,width,height,xAxis,yAxis,grid,dataAt,x,y,radius,color)
@@ -70,7 +72,7 @@ export default function define(runtime, observer) {
         .attr("r", d => radius(d.population))
         .attr("fill", d => color(d.element))
         .call(circle => circle.append("title")
-          .text(d => [d.element, d.element].join("\n")));
+        .text(d => [d.element, d.element].join("\n")));
 
     return Object.assign(svg.node(), {
       update(data) {
@@ -118,10 +120,11 @@ export default function define(runtime, observer) {
     .call(g => g.select(".domain").remove())
     .call(g => g.append("text")
         .attr("x", width)
-        .attr("y", margin.bottom - 4)
+        .attr("y", margin.bottom - 2)
         .attr("fill", "currentColor")
         .attr("text-anchor", "end")
-        .text("Average Spending (THB) →"))
+        .style("font-size", "12px")
+        .text("Average Spending, การใช้จ่ายค่าบริการโดยเฉลี่ย (THB) →"))
   )});
 
   main.variable(observer("yAxis")).define("yAxis", ["margin","d3","y"], function(margin,d3,y){return(
@@ -131,10 +134,11 @@ export default function define(runtime, observer) {
     .call(g => g.select(".domain").remove())
     .call(g => g.append("text")
         .attr("x", -margin.left)
-        .attr("y", 10)
+        .attr("y", 12)
         .attr("fill", "currentColor")
         .attr("text-anchor", "start")
-        .text("↑ Average Satisfaction (%)"))
+        .style("font-size", "12px")
+        .text("↑ Average Satisfaction, ความพอใจโดยเฉลี่ย (%)"))
   )});
 
   main.variable(observer("grid")).define("grid", ["x","margin","height","y","width"], function(x,margin,height,y,width){return(
