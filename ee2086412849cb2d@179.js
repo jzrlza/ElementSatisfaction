@@ -106,7 +106,7 @@ export default function define(runtime, observer) {
   )});
 
   main.variable(observer("color")).define("color", ["d3","data"], function(d3,data){return(
-    d3.scaleOrdinal(data.map(d => d.element), [`#593300`, `#000959`, `#bd0d00`, `#4fa7ff`])
+    d3.scaleOrdinal(data.map(d => d.element), [`#30cf00`, `#000959`, `#bd0d00`, `#4fa7ff`, `#878787`, `#dba800`, `#ff66e0`, `#6d05ed`])
     //d3.scaleOrdinal(["a", "b", "c", "d", "e", "f", "g", "h"],[`#383867`, `#584c77`, `#33431e`, `#a36629`, `#92462f`, `#b63e36`, `#b74a70`, `#946943`])
     //d3.scaleOrdinal(data.map(d => d.region), d3.schemeCategory10).unknown("black")
   )});
